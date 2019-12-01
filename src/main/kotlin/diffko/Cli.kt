@@ -22,7 +22,7 @@ class Diffko : CliktCommand() {
         val orig = origText.toList()
         val revText = revisedFile.readText()
         val rev = revText.toList()
-        val changes = MyersDiff.computeDiff(origText, revText)
+        val changes = MyersDiff.buildPatch(origText, revText)
         DiffPrinter.printDiff(
                 changes,
                 orig,

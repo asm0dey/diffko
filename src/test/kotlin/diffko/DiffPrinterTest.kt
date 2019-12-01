@@ -13,7 +13,7 @@ class DiffPrinterTest : ShouldSpec(){
             should("render correct string on diff") {
                 val source = "abc"
                 val target = "bcd"
-                val diff = MyersDiff.computeDiff(source, target)
+                val diff = MyersDiff.buildPatch(source, target)
                 DiffPrinter.stringDiff(
                         diff,
                         source.toCharArray(),
@@ -37,7 +37,7 @@ class DiffPrinterTest : ShouldSpec(){
                            |val pqr = 2
                            |
                            |val fooBoo = FooBoo(def, pqr)""".trimMargin()
-                val diff = MyersDiff.computeDiff(source, revised)
+                val diff = MyersDiff.buildPatch(source, revised)
                 DiffPrinter.stringDiff(
                         changes = diff,
                         original = source.toCharArray(),

@@ -7,12 +7,6 @@ import diffko.DeltaType.*
  */
 object MyersDiff {
 
-    fun computeDiff(source: String, revised: String) = buildPatch(
-            findPath(source, revised),
-            source.length,
-            revised.length
-    )
-
     private fun findPath(orig: String, rev: String): DiffChain? {
         val origChars = orig.toCharArray()
         val revChars = rev.toCharArray()
@@ -62,12 +56,12 @@ object MyersDiff {
      * @return A [Patch] script corresponding to the path.
      * path.
      */
-    private fun buildPatch(actualPath: DiffChain?, sourceLength: Int, revisedLength: Int): List<Change> {
+    fun buildPatch(source: String, revised: String): List<Change> {
+        val diffChain = findPath(source, revised)
         val result = arrayListOf<Change>()
-        val list = (actualPath ?: listOf<DiffChain>())
+        val list = (diffChain ?: listOf<DiffChain>())
                 .reversed()
-                .map { it.copy(previous = null) }
-                .plus(DiffChain(sourceLength, revisedLength, null))
+                .plus(DiffChain(source.length, revised.length, null))
         var i = -1
         var j = -1
         for (chain in list) {
