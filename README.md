@@ -15,10 +15,12 @@ paper will have a little bit less WTF/s.
 ./gradlew build
 ```
 
+Build jars will be located in `build/libs` and distributions (with run scripts) will be in build/distributions/
+
 ## Run
 
 ```
-java -jar diffko-1.0.0-all.jar --help
+java -jar diffko-all.jar --help
 ```
 
 This command will print usage information like this:

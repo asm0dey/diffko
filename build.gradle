@@ -42,4 +42,7 @@ allure {
 
 shadowJar {
   minimize()
+  baseName = 'diffko'
+  classifier = 'all'
+  archiveVersion = ''
 }
