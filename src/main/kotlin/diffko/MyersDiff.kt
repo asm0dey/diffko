@@ -7,7 +7,7 @@ import diffko.DeltaType.*
  */
 object MyersDiff {
 
-    private fun findPath(orig: String, rev: String): MutableList<DiffChain> {
+    private fun findPath(orig: String, rev: String): List<DiffChain> {
         val origChars = orig.toCharArray()
         val revChars = rev.toCharArray()
         val N = orig.length
@@ -57,9 +57,8 @@ object MyersDiff {
      * path.
      */
     fun buildPatch(source: String, revised: String): List<Change> {
-        val diffChain = findPath(source, revised)
         val result = arrayListOf<Change>()
-        val list = diffChain
+        val list = findPath(source, revised)
                 .reversed()
                 .plus(DiffChain(source.length, revised.length, null))
         var i = -1
