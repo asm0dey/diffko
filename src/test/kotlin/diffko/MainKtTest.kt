@@ -35,7 +35,7 @@ class MainKtTest : BehaviorSpec() {
             `when`("I call diffko with  file params and --color") {
                 main(arrayOf("-s", f1, "-r", f2, "--color"))
                 then("I get text with bash colors") {
-                    outContent.toString("UTF-8") shouldBe "'[31ma'[0mbc'[32md'[0m\n"
+                    outContent.toString("UTF-8") shouldBe "\u001B[31ma\u001B[0mbc\u001B[32md\u001B[0m\n"
                     outContent.reset()
                 }
             }

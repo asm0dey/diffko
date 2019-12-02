@@ -48,9 +48,9 @@ enum class OutputMode(
             revPostfix = ">>"
     ),
     COLOR(
-            oldPrefix = "\u0027[31m",
-            oldPostfix = "\u0027[0m",
-            revPrefix = "\u0027[32m",
-            revPostfix = "\u0027[0m"
+            oldPrefix = "\u001B[31m",
+            oldPostfix = "\u001B[0m",
+            revPrefix = "\u001B[32m",
+            revPostfix = "\u001B[0m"
     )
 }
