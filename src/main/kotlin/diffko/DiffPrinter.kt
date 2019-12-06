@@ -34,7 +34,7 @@ object DiffPrinter {
     ): String {
         var currentSourcePosition = 0
         val b = StringBuilder()
-        for (change in changes.sortedBy { it.startOriginal }) {
+        for (change in changes) {
             b.append(original.sliceArray(currentSourcePosition until change.startOriginal))
             when (change.deltaType) {
                 CHANGE -> b.append(

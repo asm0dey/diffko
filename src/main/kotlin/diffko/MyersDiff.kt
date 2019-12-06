@@ -74,8 +74,7 @@ object MyersDiff {
                         when {
                             revDelta > 1 && sourceDelta > 1 -> CHANGE
                             revDelta > 1 -> INSERT
-                            sourceDelta > 1 -> DELETE
-                            else -> throw IllegalStateException("Uknown combination of changes")
+                            else -> DELETE
                         },
                         startOriginal = i + 1,
                         endOriginal = x,

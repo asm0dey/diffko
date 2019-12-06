@@ -182,3 +182,4 @@ gradle-app.setting
 
 .kotlintest/
 .allure/
+allure-results/
